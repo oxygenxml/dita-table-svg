@@ -11,4 +11,9 @@ Example:
 
 ![Sample Table to SVG graph conversion](https://github.com/oxygenxml/dita-table-svg/raw/master/com.oxygenxml.table.svg.report/samples/tableToSVGPreview.png "Sample Table to SVG graph conversion")
 
+Copyright and License
+---------------------
+Copyright 2019 Syncro Soft SRL.
+
+This project is licensed under [Apache License 2.0](https://github.com/oxygenxml/dita-table-svg/blob/master/LICENSE)
 
