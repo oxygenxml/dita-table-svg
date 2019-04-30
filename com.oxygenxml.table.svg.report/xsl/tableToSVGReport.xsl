@@ -5,9 +5,10 @@
     
     <xsl:variable name="axisPadding" select="xs:integer('100')" as="xs:integer"/>
     <xsl:variable name="axisXPadding" select="xs:integer('20')" as="xs:integer"/>
-    <xsl:variable name="svgWidth" select="xs:integer('800')" as="xs:integer"/>
+    <xsl:variable name="svgWidth" select="xs:integer('1000')" as="xs:integer"/>
+    <xsl:variable name="graphWidth" select="$svgWidth - $axisXPadding - 100" as="xs:integer"/>    
     <xsl:variable name="svgHeight" select="xs:integer('500')" as="xs:integer"/>
-    <xsl:variable name="graphHeight" select="$svgHeight - $axisPadding" as="xs:integer"/>
+    <xsl:variable name="graphHeight" select="$svgHeight - $axisPadding" as="xs:integer"/>    
     <xsl:variable name="numberHeaderColumns" select="xs:integer(1)" as="xs:integer"/>
     <xsl:variable name="colors" select="('red', 'green', 'blue', 'orange', 'purple', 'pink', 'brown', 'black')"/>
     
@@ -40,7 +41,7 @@
         <xsl:param name="count" select="1"/>
         
         <xsl:if test="$index &lt;= $count">
-            <text x="{$axisXPadding - 10}" y="{$graphHeight - $index * $interval - 1}" class="ticksFont">
+            <text x="{$axisXPadding}" y="{$graphHeight - $index * $interval - 2}" class="ticksFont">
                 <xsl:value-of select="$index * $intervalTable"/>
             </text>
             <line class="strokeAxis" x1="{$axisXPadding}" x2="{$axisXPadding + 10}" 
@@ -86,7 +87,6 @@
             </style>
             <g transform="translate(0,20)">
                 <xsl:variable name="numberColumns" select="count(thead/row/entry)" as="xs:integer"/>
-                <xsl:variable name="graphWidth" select="$svgWidth - $axisXPadding" as="xs:integer"/>
                 <xsl:variable name="intervalsBetweenCols" select="$graphWidth div $numberColumns" as="xs:double"/>
                 <!-- The x and y axes  -->
                 <line class="strokeAxis" x1="{$axisXPadding}" x2="{$graphWidth}" y1="{$graphHeight}" y2="{$graphHeight}"></line>
@@ -125,12 +125,12 @@
                 <xsl:if test="$numberHeaderColumns > 0">
                     <xsl:for-each select="tbody/row">
                         <xsl:variable name="position" select="position()"/>
-                        <text x="{$svgWidth - 100}" y="{$position * 20 + 10}" class="textFont">
+                        <text x="{$svgWidth - 200}" y="{$position * 20 + 10}" class="textFont">
                             <xsl:value-of select="entry[1]"/>
                         </text>
-                        <line x1="{$svgWidth - 125}"
+                        <line x1="{$svgWidth - 225}"
                             y1="{$position * 20 + 2}"
-                            x2="{$svgWidth - 110}"
+                            x2="{$svgWidth - 210}"
                             y2="{$position * 20 + 2}"
                             stroke="{$colors[$position]}" class="graphStroke"
                         />
