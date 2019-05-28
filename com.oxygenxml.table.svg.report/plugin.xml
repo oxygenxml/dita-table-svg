@@ -2,7 +2,6 @@
 <plugin id="com.oxygenxml.table.svg.report">
   <feature extension="package.support.name" value="Oxygen XML Editor Support"/>
   <feature extension="package.support.email" value="support@oxygenxml.com"/>
-  <feature extension="package.version" value="21.0"/>
   
   <feature extension="dita.xsl.xhtml" value="xsl/xhtmlSVG.xsl" type="file"/>
   <feature extension="dita.conductor.xhtml.param" value="insertParameters.xml" type="file"/>
